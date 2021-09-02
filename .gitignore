@@ -1,2 +1,18 @@
-node_modules
+# Files
+.analysis
+.DS_Store
 .env
+*.swp
+*~
+
+
+# Folders
+/vendor
+bbin/
+bin/
+coverage
+gh-pages/
+pkg/
+test/dest
+tmp/*
+node_modules
