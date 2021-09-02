@@ -16,7 +16,7 @@ class App {
         this.app.express.use(cors()); 
         this.app.express.use(logger("dev"));
         //this.app.express.use(helmet()); helemet will block graphql playgtound
-    };
+    }; 
 }
 
 export default new App().app

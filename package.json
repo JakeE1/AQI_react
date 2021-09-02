@@ -4,7 +4,9 @@
   "description": "backendKyrs",
   "main": "index.js",
   "scripts": {
-    "dev": "cd src && nodemon --exec ts-node index.ts"
+    "dev": "cd src && nodemon --exec ts-node index.ts",
+    "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
     "tslint-config-prettier": "^1.18.0",
+    "graphql-to-typescript": "^0.1.2",
+    "gql-merge": "0.0.6",
     "typescript": "^4.4.2"
   },
   "homepage": "https://github.com/JakeE1/AQI_react#readme",
@@ -27,6 +31,7 @@
     "@types/helmet": "^4.0.0",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.7.10",
+    "babel-runtime": "^6.26.0",
     "cors": "^2.8.5",
     "graphql-tools": "^8.2.0",
     "graphql-yoga": "^1.18.3",
