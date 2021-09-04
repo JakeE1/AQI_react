@@ -1,6 +1,24 @@
+type Chat {
+  id: Int!
+  message: [Message]!
+  participants: [User]!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Message {
+  id: Int!
+  text: String!
+  chat: Message!
+  user: User!
+  createdAt: String!
+  updatedAt: String!
+}
+
 type Query {
   sayBye: String!
   sayHello(name: String!): Greeting!
+  GetMyProfile: GetMyProfileResponse!
   user: User
 }
 
@@ -9,26 +27,103 @@ type Greeting {
   error: Boolean!
 }
 
-type User {
+type Place {
   id: Int!
-  email: String
-  verifiedEmail: Boolean!
-  firstName: String!
-  lastName: String!
-  age: Int
-  password: String
-  phoneNumber: String
-  verifiedPhoneNumber: Boolean!
-  profilePhoto: String
+  name: String!
+  lat: Float!
+  lng: Float!
+  address: String!
+  isFav: Boolean!
   createdAt: String!
   updatedAt: String
+}
+
+type Ride {
+  id: Int!
+  status: String!
+  pickUpAddress: String!
+  pickUpLat: Float!
+  pickUpLng: Float!
+  price: Float!
+  dropOffAddress: String!
+  dropOffLat: Float!
+  dropOffLng: Float!
+  distance: String!
+  duration: String!
+  driver: User!
+  passenger: User!
+  createdAt: String!
+  updatedAt: String
+}
+
+type CompletePhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  CompletePhoneVerification(phoneNumber: String!, key: String!): CompletePhoneVerificationResponse!
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+  EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
+  FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+}
+
+type EmailSignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type EmailSignUpResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type FacebookConnectResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
+type User {
+  id: Int!
+  age: Int
+  email: String
+  fbId: String
+  firstName: String!
   fullName: String
   isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
+  lastName: String!
   lastLng: Float
   lastLat: Float
   lastOrientation: Float
+  messages: [Message]
+  password: String
+  phoneNumber: String
+  profilePhoto: String
+  ridesAsPassenger: [Ride]
+  ridesAsDriver: [Ride]
+  verifiedEmail: Boolean!
+  verifiedPhoneNumber: Boolean!
+  chat: Chat
+  createdAt: String!
+  updatedAt: String
+}
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type Verification {
@@ -36,7 +131,7 @@ type Verification {
   target: String!
   payload: String!
   key: String!
-  used: String!
+  verified: Boolean!
   createdAt: String!
   updatedAt: String!
 }
