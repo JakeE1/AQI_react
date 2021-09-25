@@ -28,8 +28,8 @@
 - [X] Delete Place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers 
-- [ ] Request a Ride 
 - [ ] Get Nearby Rides
+- [ ] Request a Ride 
 - [ ] Subscribe to Nearby Ride Requests
 - [ ] Subscribe to Rides Status
 - [ ] Get Chat Room Messages

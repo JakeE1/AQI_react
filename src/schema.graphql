@@ -20,6 +20,7 @@ type Query {
   sayHello(name: String!): Greeting!
   GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
+  GetNearbyDrivers: GetNearbyDriversResponse!
   user: User
 }
 
@@ -107,6 +108,10 @@ type CompletePhoneVerificationResponse {
   token: String
 }
 
+type Subscription {
+  DriversSubscription: User
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -129,6 +134,12 @@ type GetMyProfileResponse {
   ok: Boolean!
   error: String
   user: User
+}
+
+type GetNearbyDriversResponse {
+  ok: Boolean!
+  error: String
+  drivers: [User]
 }
 
 type ReportMovementResponse {
