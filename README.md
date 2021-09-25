@@ -26,12 +26,14 @@
 - [X] Edit Place
 - [X] Get My Places
 - [X] Delete Place
-- [ ] See Nearby Drivers
-- [ ] Subscribe to Nearby Drivers 
-- [ ] Get Nearby Rides
-- [ ] Request a Ride 
-- [ ] Subscribe to Nearby Ride Requests
-- [ ] Subscribe to Rides Status
+- [X] See Nearby Drivers
+- [X] Subscribe to Nearby Drivers 
+- [X] Get Nearby Rides
+- [X] Request a Ride 
+- [X] Subscribe to Nearby Ride Requests
+- [X] Update ride Status
+- [X] Subscribe to Rides Status
+- [X] Get Ride
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
