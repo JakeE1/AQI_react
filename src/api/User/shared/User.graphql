@@ -12,15 +12,14 @@ type User {
     lastLng: Float
     lastLat: Float
     lastOrientation: Float
-    messages: [Message]
     password: String
     phoneNumber: String
+    places: [Place]
     profilePhoto: String  
     ridesAsPassenger: [Ride]
     ridesAsDriver: [Ride]
     verifiedEmail: Boolean!
     verifiedPhoneNumber: Boolean!
-    chat: Chat
     createdAt: String! 
     updatedAt: String 
 }

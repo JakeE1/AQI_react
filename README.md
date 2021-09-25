@@ -18,14 +18,15 @@
 ### private
 
 - [X] Get My Profile 
-- [ ] Verify Email
-- [ ] Update my Profile
-- [ ] Add Place
-- [ ] Edit Place
-- [ ] Delete Place
-- [ ] Report location / orientation
+- [X] Verify Email
+- [X] Update my Profile
+- [X] Toggle Driving Mode
+- [X] Report location / orientation
+- [X] Add Place
+- [X] Edit Place
+- [X] Get My Places
+- [X] Delete Place
 - [ ] See Nearby Drivers
-- [ ] Toggle Driving Mode
 - [ ] Subscribe to Nearby Drivers 
 - [ ] Request a Ride 
 - [ ] Get Nearby Rides

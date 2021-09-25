@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt'
 import { IsEmail } from "class-validator";
-import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import Chat from './Chat';
-import Message from './Message';
+import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+// import Chat from './Chat';
+// import Message from './Message';
+import Place from './Place';
 import Ride from './Ride';
 
 const BCRYPT_ROUNDS = 10;
@@ -64,11 +65,14 @@ class User extends BaseEntity {
     @Column({ type: "text", nullable: true })
     fbId: string;
 
-    @ManyToOne(type => Chat, Chat => Chat.participants)
-    chat: Chat;
+//    @ManyToOne(type => Chat, Chat => Chat.participants)
+//    chat: Chat;
 
-    @OneToMany(type => Message, message => message.user)
-    messages: Message[];
+    @OneToMany(type => Place, place => place.user)
+    places: Place[];
+
+//    @OneToMany(type => Message, message => message.user)
+//    messages: Message[];
 
     @OneToMany(type => Ride, ride => ride.passenger)
     ridesAsPassenger: Ride[];
