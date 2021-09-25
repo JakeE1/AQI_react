@@ -34,8 +34,7 @@
 - [X] Update ride Status
 - [X] Subscribe to Rides Status
 - [X] Get Ride
-- [ ] Get Chat Room Messages
-- [ ] Subscribe to Chat Room Messages
-- [ ] Send a Chat Message
-- [ ] Get Ride History
-- [ ] See Ride Detail 
+- [X] Create a Chat Room
+- [X] Get Chat Room Messages
+- [X] Subscribe to Chat Room Messages
+- [X] Send a Chat Message

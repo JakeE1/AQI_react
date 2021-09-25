@@ -1,4 +1,4 @@
-//import Chat from "../../../entities/Chat";
+import Chat from "../../../entities/Chat";
 import Ride from "../../../entities/Ride";
 import User from "../../../entities/User";
 import {
@@ -32,11 +32,11 @@ const resolvers: Resolvers = {
                 ride.driver = user;
                 user.isTaken = true;
                 user.save();
-               // const chat = await Chat.create({
-               //   driver: user,
-               //   passenger: ride.passenger
-               // }).save();
-               // ride.chat = chat;
+                const chat = await Chat.create({
+                  driver: user,
+                  passenger: ride.passenger
+                }).save();
+                ride.chat = chat;
                 ride.save();
               }
             } else {
