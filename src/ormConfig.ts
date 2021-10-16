@@ -11,7 +11,10 @@ const connectionOptions: ConnectionOptions = {
     logging: true,
     entities: [
         "entities/**/*.*"
-    ]
+    ],
+    ssl: {
+        rejectUnauthorized: false,
+    }
 } 
 
 export default connectionOptions;

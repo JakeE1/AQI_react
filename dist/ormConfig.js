@@ -11,7 +11,10 @@ var connectionOptions = {
     logging: true,
     entities: [
         "entities/**/*.*"
-    ]
+    ],
+    ssl: {
+        rejectUnauthorized: false,
+    }
 };
 exports.default = connectionOptions;
 //# sourceMappingURL=ormConfig.js.map
