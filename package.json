@@ -7,7 +7,11 @@
     "predev": "npm run types",
     "dev": "cd src && nodemon --exec ts-node index.ts",
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
-    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts",
+    "prebuild": "rm -rd dist",
+    "build": "tsc",
+    "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api",
+    "start": "cd dist && node ."
   },
   "repository": {
     "type": "git",
@@ -19,15 +23,6 @@
     "url": "https://github.com/JakeE1/AQI_react/issues"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12",
-    "ts-node": "^10.2.1",
-    "tslint-config-prettier": "^1.18.0",
-    "graphql-to-typescript": "^0.1.2",
-    "gql-merge": "0.0.6",
-    "typescript": "^4.4.2"
-  },
-  "homepage": "https://github.com/JakeE1/AQI_react#readme",
-  "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/helmet": "^4.0.0",
@@ -35,12 +30,18 @@
     "@types/mailgun-js": "^0.22.12",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.7.10",
-    "@types/twilio": "^3.19.3",
+    "@types/twilio": "^3.19.3"
+  },
+  "homepage": "https://github.com/JakeE1/AQI_react#readme",
+  "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^5.0.1",
     "class-validator": "^0.13.1",
+    "copy": "^0.3.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "gql-merge": "0.0.6",
+    "graphql-to-typescript": "^0.1.2",
     "graphql-tools": "^8.2.0",
     "graphql-yoga": "^1.18.3",
     "helmet": "^4.6.0",
@@ -48,8 +49,12 @@
     "mailgun-js": "^0.22.0",
     "merge-graphql-schemas": "^1.7.8",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
     "pg": "^8.7.1",
+    "ts-node": "^10.2.1",
+    "tslint-config-prettier": "^1.18.0",
     "twilio": "^3.67.1",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.2.37",
+    "typescript": "^4.4.2"
   }
 }
