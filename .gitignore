@@ -16,4 +16,4 @@ pkg/
 test/dest
 tmp/*
 node_modules
-dist
+
