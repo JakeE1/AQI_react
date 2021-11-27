@@ -19,7 +19,7 @@ const resolvers: Resolvers = {
               return {
                 ok: true,
                 error: `${JSON.stringify(ride)}`,
-                ride
+                ride: ride
               };
             } else {
               return {
