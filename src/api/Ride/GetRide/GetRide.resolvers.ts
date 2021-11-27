@@ -15,11 +15,28 @@ const resolvers: Resolvers = {
             id: args.rideId
           });
           if (ride) {
+            if (ride.passengerId) {
+              const passenger = await User.findOne({
+                id: ride.passengerId
+              })
+              if (passenger) {
+                ride.passenger = passenger;
+              }
+            }
+            if (ride.driverId) {
+              const driver = await User.findOne({
+                id: ride.driverId
+              })
+              if (driver) {
+                ride.driver = driver;
+              }
+            }
+            
             if (ride.passengerId === user.id || ride.driverId === user.id) {
               return {
                 ok: true,
                 error: `${JSON.stringify(ride)}`,
-                ride: ride
+                ride: ride,
               };
             } else {
               return {
