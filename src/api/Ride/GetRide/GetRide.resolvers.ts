@@ -18,7 +18,7 @@ const resolvers: Resolvers = {
             if (ride.passengerId === user.id || ride.driverId === user.id) {
               return {
                 ok: true,
-                error: null,
+                error: `${ride}`,
                 ride
               };
             } else {
