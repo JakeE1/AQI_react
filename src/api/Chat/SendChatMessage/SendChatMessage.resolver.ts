@@ -17,12 +17,7 @@ const resolvers: Resolvers = {
         { req, pubSub }
       ): Promise<SendChatMessageResponse> => {
         const user: User = req.user;
-        return {
-          ok: true,
-          error: null,
-          message: null
-        }
-        /* try {
+        try {
           const chat = await Chat.findOne({ id: args.chatId });
           if (chat) {
             if (chat.passengerId === user.id || chat.driverId === user.id) {
@@ -34,33 +29,28 @@ const resolvers: Resolvers = {
               pubSub.publish("newChatMessage", {
                 MessageSubscription: message
               });
-              
               return {
                 ok: true,
                 error: null,
-                message: message
               };
             } else {
               return {
                 ok: false,
                 error: "Unauthorized",
-                message: null
               };
             }
           } else {
             return {
               ok: false,
               error: "Chat not found",
-              message: null
             };
           }
         } catch (error) {
           return {
             ok: false,
             error: error.message,
-            message: null
           };
-        } */
+        }
       }
     )
   }
