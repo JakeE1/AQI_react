@@ -32,7 +32,7 @@ const resolvers: Resolvers = {
               return {
                 ok: true,
                 error: null,
-                message
+                message: message
               };
             } else {
               return {
