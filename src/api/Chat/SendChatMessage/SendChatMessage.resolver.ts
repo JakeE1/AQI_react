@@ -19,34 +19,15 @@ const resolvers: Resolvers = {
         const user: User = req.user;
         try {
           const chat = await Chat.findOne({ id: args.chatId });
-          if (chat) {
-            if (chat.passengerId === user.id || chat.driverId === user.id) {
-              const message = await Message.create({
-                text: args.text,
-                chat,
-                user
-              }).save();
-              pubSub.publish("newChatMessage", {
-                MessageSubscription: message
-              });
-              return {
-                ok: true,
-                error: null,
-                message: message
-              };
-            } else {
-              return {
-                ok: false,
-                error: "Unauthorized",
-                message: null
-              };
-            }
-          } else {
-            return {
-              ok: false,
-              error: "Chat not found",
-              message: null
-            };
+          const message = await Message.create({
+            text: args.text,
+            chat,
+            user
+          }).save();
+          return {
+            ok: true,
+            error: `CHAT = ${JSON.stringify(chat)} ||||||  message = ${message}`,
+            message: null
           }
         } catch (error) {
           return {
