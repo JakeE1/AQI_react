@@ -1,7 +1,7 @@
 import { ConnectionOptions } from "typeorm";
 
 const connectionOptions: ConnectionOptions = {
-    database: "sandex",
+    database: process.env.DB_NAME || "sandex",
     type: 'postgres',
     host: process.env.DB_ENDPOINT,
     port: 5432,
@@ -12,6 +12,9 @@ const connectionOptions: ConnectionOptions = {
     entities: [
         "entities/**/*.*"
     ],
+    ssl: {
+        rejectUnauthorized: false,
+    }
 } 
 
 export default connectionOptions;
