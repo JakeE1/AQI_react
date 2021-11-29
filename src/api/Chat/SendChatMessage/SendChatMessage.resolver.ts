@@ -1,6 +1,6 @@
-import Chat from "../../../entities/Chat";
-import Message from "../../../entities/Message";
-import User from "../../../entities/User";
+//import Chat from "../../../entities/Chat";
+//import Message from "../../../entities/Message";
+//import User from "../../../entities/User";
 import {
   SendChatMessageMutationArgs,
   SendChatMessageResponse
@@ -16,7 +16,7 @@ const resolvers: Resolvers = {
         args: SendChatMessageMutationArgs,
         { req, pubSub }
       ): Promise<SendChatMessageResponse> => {
-        const user: User = req.user;
+        //const user: User = req.user;
         return {
           ok: true,
           error: null,
