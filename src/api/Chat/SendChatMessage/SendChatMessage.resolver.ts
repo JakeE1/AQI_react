@@ -17,10 +17,12 @@ const resolvers: Resolvers = {
         { req, pubSub }
       ): Promise<SendChatMessageResponse> => {
         const user: User = req.user;
-        try {
+        return {
+          ok: true,
+          error: null,
+        };
+        /* try {
           const chat = await Chat.findOne({ id: args.chatId });
-          console.log('CHAAAAAAAAAAAAAAAAAAAAAAAAAAAAT ====', chat);
-          console.log('usssssssssssssssssssssssssssseeeerr ====', user)
           if (chat) {
             if (chat.passengerId === user.id || chat.driverId === user.id) {
               const message = await Message.create({
@@ -52,7 +54,7 @@ const resolvers: Resolvers = {
             ok: false,
             error: error.message,
           };
-        }
+        } */
       }
     )
   }
