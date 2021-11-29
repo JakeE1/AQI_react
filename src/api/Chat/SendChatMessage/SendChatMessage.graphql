@@ -1,6 +1,8 @@
+  
 type SendChatMessageResponse {
   ok: Boolean!
   error: String
+  message: Message
 }
 
 type Mutation {
