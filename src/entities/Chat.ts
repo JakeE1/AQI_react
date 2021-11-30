@@ -23,7 +23,7 @@ import {
   
     @Column({ nullable: true })
     passengerId: number;
-  
+
     @ManyToOne(type => User, user => user.chatsAsPassenger)
     passenger: User;
   
